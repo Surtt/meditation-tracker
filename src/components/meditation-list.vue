@@ -28,6 +28,9 @@ onMounted(() => {
 
 <style scoped>
 .meditation-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(339px, 1fr));
+  gap: 22px;
 }
 
 .meditation-card {

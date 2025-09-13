@@ -3,5 +3,6 @@ import App from './App.vue';
 
 import './assets/main.css';
 import { createPinia } from 'pinia';
+import { router } from './routes';
 
-createApp(App).use(createPinia()).mount('#app');
+createApp(App).use(createPinia()).use(router).mount('#app');
