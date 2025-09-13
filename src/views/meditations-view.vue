@@ -9,7 +9,7 @@ import RelaxIcon from "@/icons/relax-icon.vue";
 <template>
   <div class="container">
     <div class="left">
-      <img src="/public/avatar.png" width="129" height="129" alt="avatar" />
+      <img src="/avatar.png" width="129" height="129" alt="avatar" />
       <div class="text-wrapper">
         <h2 class="title">Добро пожаловать, Наталья!</h2>
         <p class="text">Как вы сегодня себя чувствуете?</p>

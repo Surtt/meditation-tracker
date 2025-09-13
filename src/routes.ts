@@ -22,7 +22,7 @@ export const router = createRouter({
       component: () => import('@/views/main-view.vue'),
       children: [
         {
-          path: 'statistics',
+          path: '',
           name: 'statistics',
           component: () => import('@/views/statistics-view.vue'),
         },
