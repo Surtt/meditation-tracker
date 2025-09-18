@@ -10,7 +10,7 @@ export const router = createRouter({
     {
       path: '/register',
       component: () => import('@/views/register-view.vue'),
-      name: 'signup',
+      name: 'register',
     },
     {
       path: '/login',

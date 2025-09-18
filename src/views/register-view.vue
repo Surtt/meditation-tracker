@@ -19,7 +19,7 @@ function onSubmit(event: Event) {
 		form.value.password,
 	);
 	form.value = {};
-	router.push({ name: "meditations" });
+	router.push({ name: "login" });
 }
 </script>
 
