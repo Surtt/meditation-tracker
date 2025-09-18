@@ -2,9 +2,24 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 export const router = createRouter({
   routes: [
+    // {
+    //   path: '/:pathMatch(.*)*',
+    //   name: 'not-found',
+    //   component: () => import('./views/not-found-view.vue'),
+    // },
+    {
+      path: '/register',
+      component: () => import('@/views/register-view.vue'),
+      name: 'signup',
+    },
+    {
+      path: '/login',
+      component: () => import('@/views/login-view.vue'),
+      name: 'login',
+    },
     {
       path: '/',
-      component: () => import('@/views/auth-view.vue'),
+      component: () => import('@/views/welcome-view.vue'),
     },
     {
       path: '/meditations',
