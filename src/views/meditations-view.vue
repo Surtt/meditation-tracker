@@ -4,6 +4,26 @@ import AnxiousIcon from "@/icons/anxious-icon.vue";
 import CalmIcon from "@/icons/calm-icon.vue";
 import FocusIcon from "@/icons/focus-icon.vue";
 import RelaxIcon from "@/icons/relax-icon.vue";
+import { useProfileStore } from "@/stores/profile.store";
+import { useStatsStore } from "@/stores/stats.store";
+import { onMounted } from "vue";
+
+const profileStore = useProfileStore();
+const statsStore = useStatsStore();
+const feelings = [
+	"feeling_calm",
+	"feeling_relax",
+	"feeling_focus",
+	"feeling_anxiety",
+];
+
+onMounted(() => {
+	profileStore.fetchProfile();
+});
+
+function setFeelings(feeling: string, value: number) {
+	statsStore.setFeeling(feeling, value);
+}
 </script>
 
 <template>
@@ -11,23 +31,25 @@ import RelaxIcon from "@/icons/relax-icon.vue";
     <div class="left">
       <img src="/avatar.png" width="129" height="129" alt="avatar" />
       <div class="text-wrapper">
-        <h2 class="title">Добро пожаловать, Наталья!</h2>
+        <h2 v-if="profileStore.profile" class="title">
+          Добро пожаловать, {{ profileStore.profile.data.user.username }}
+        </h2>
         <p class="text">Как вы сегодня себя чувствуете?</p>
       </div>
       <div class="feelings">
-        <div class="icon">
+        <div @click="setFeelings(feelings[0], 1)" class="icon">
           <div class="icon-wrapper"><CalmIcon /></div>
           <span class="icon-text">Спокойно</span>
         </div>
-        <div class="icon">
+        <div @click="setFeelings(feelings[1], 1)" class="icon">
           <div class="icon-wrapper"><RelaxIcon /></div>
           <span class="icon-text">Расслабленно</span>
         </div>
-        <div class="icon">
+        <div @click="setFeelings(feelings[2], 1)" class="icon">
           <div class="icon-wrapper"><FocusIcon /></div>
           <span class="icon-text">Фокусировано</span>
         </div>
-        <div class="icon">
+        <div @click="setFeelings(feelings[3], 1)" class="icon">
           <div class="icon-wrapper"><AnxiousIcon /></div>
           <span class="icon-text">Тревожно</span>
         </div>

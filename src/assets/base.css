@@ -1,11 +1,11 @@
 :root {
 	--bg-color: rgba(37, 51, 52, 1);
 	--primary-color: rgba(255, 255, 255, 1);
-	--bg-form-button-color: rgba(124, 154, 146, 1);
-	--form-text-color: rgba(190, 194, 194, 1);
+	--form-text-color: rgba(217, 217, 217, 1);
 	--bg-card: rgba(247, 243, 240, 1);
 	--primary-inverted-color: rgba(0, 0, 0, 1);
 	--bg-divider: rgba(58, 80, 81, 1);
+	--bg-form-button-color: rgba(124, 154, 146, 1);
 }
 
 *,
