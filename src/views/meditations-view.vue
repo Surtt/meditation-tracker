@@ -5,13 +5,25 @@ import CalmIcon from "@/icons/calm-icon.vue";
 import FocusIcon from "@/icons/focus-icon.vue";
 import RelaxIcon from "@/icons/relax-icon.vue";
 import { useProfileStore } from "@/stores/profile.store";
+import { useStatsStore } from "@/stores/stats.store";
 import { onMounted } from "vue";
 
 const profileStore = useProfileStore();
+const statsStore = useStatsStore();
+const feelings = [
+	"feeling_calm",
+	"feeling_relax",
+	"feeling_focus",
+	"feeling_anxiety",
+];
 
 onMounted(() => {
 	profileStore.fetchProfile();
 });
+
+function setFeelings(feeling: string, value: number) {
+	statsStore.setFeeling(feeling, value);
+}
 </script>
 
 <template>
@@ -25,19 +37,19 @@ onMounted(() => {
         <p class="text">Как вы сегодня себя чувствуете?</p>
       </div>
       <div class="feelings">
-        <div class="icon">
+        <div @click="setFeelings(feelings[0], 1)" class="icon">
           <div class="icon-wrapper"><CalmIcon /></div>
           <span class="icon-text">Спокойно</span>
         </div>
-        <div class="icon">
+        <div @click="setFeelings(feelings[1], 1)" class="icon">
           <div class="icon-wrapper"><RelaxIcon /></div>
           <span class="icon-text">Расслабленно</span>
         </div>
-        <div class="icon">
+        <div @click="setFeelings(feelings[2], 1)" class="icon">
           <div class="icon-wrapper"><FocusIcon /></div>
           <span class="icon-text">Фокусировано</span>
         </div>
-        <div class="icon">
+        <div @click="setFeelings(feelings[3], 1)" class="icon">
           <div class="icon-wrapper"><AnxiousIcon /></div>
           <span class="icon-text">Тревожно</span>
         </div>
