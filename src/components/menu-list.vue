@@ -2,7 +2,16 @@
 import ExitIcon from "@/icons/exit-icon.vue";
 import MeditationsIcon from "@/icons/meditations-icon.vue";
 import StatisticsIcon from "@/icons/statistics-icon.vue";
-import { RouterLink } from "vue-router";
+import { useAuthStore } from "@/stores/auth.store";
+import { RouterLink, useRouter } from "vue-router";
+
+const authStore = useAuthStore();
+const router = useRouter();
+
+function logout() {
+	authStore.clearToken();
+	router.push({ name: "login" });
+}
 </script>
 
 <template>
@@ -24,7 +33,7 @@ import { RouterLink } from "vue-router";
       <span class="divider"></span>
       <li class="menu__item">
         <ExitIcon />
-        <RouterLink class="menu__link" to="/">Выход</RouterLink>
+        <a class="menu__link" @click="logout">Выход</a>
       </li>
     </ul>
   </nav>

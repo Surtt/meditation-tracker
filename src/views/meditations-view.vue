@@ -4,6 +4,14 @@ import AnxiousIcon from "@/icons/anxious-icon.vue";
 import CalmIcon from "@/icons/calm-icon.vue";
 import FocusIcon from "@/icons/focus-icon.vue";
 import RelaxIcon from "@/icons/relax-icon.vue";
+import { useProfileStore } from "@/stores/profile.store";
+import { onMounted } from "vue";
+
+const profileStore = useProfileStore();
+
+onMounted(() => {
+	profileStore.fetchProfile();
+});
 </script>
 
 <template>
@@ -11,7 +19,9 @@ import RelaxIcon from "@/icons/relax-icon.vue";
     <div class="left">
       <img src="/avatar.png" width="129" height="129" alt="avatar" />
       <div class="text-wrapper">
-        <h2 class="title">Добро пожаловать, Наталья!</h2>
+        <h2 v-if="profileStore.profile" class="title">
+          Добро пожаловать, {{ profileStore.profile.data.user.username }}
+        </h2>
         <p class="text">Как вы сегодня себя чувствуете?</p>
       </div>
       <div class="feelings">

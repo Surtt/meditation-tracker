@@ -8,7 +8,9 @@ export const API_ROUTES = {
     login: '/auth/login',
     register: '/auth/register',
   },
+  profile: '/profile',
   meditations: '/meditations',
+  stats: '/stats',
 };
 
 export function client() {
