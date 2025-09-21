@@ -44,6 +44,17 @@ export const router = createRouter({
         },
       ],
     },
+    {
+      path: '/timer',
+      component: () => import('@/views/main-view.vue'),
+      children: [
+        {
+          path: '',
+          name: 'timer',
+          component: () => import('@/views/timer-view.vue'),
+        },
+      ],
+    },
   ],
   history: createWebHistory(),
 });

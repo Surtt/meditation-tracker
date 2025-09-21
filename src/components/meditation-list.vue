@@ -3,12 +3,22 @@ import { useMeditationsStore } from "@/stores/meditations.store";
 import { onMounted } from "vue";
 import ButtonComp from "./button-comp.vue";
 import StartIcon from "@/icons/start-icon.vue";
+import { useRouter } from "vue-router";
+import type { Meditation } from "@/types/meditation";
 
 const store = useMeditationsStore();
+const router = useRouter();
 
 onMounted(() => {
 	store.fetchMeditations();
 });
+
+function startMeditation(meditation: Meditation) {
+	router.push({
+		name: "timer",
+	});
+	store.setActiveMeditation(meditation);
+}
 </script>
 
 <template>
@@ -19,7 +29,9 @@ onMounted(() => {
         <p class="meditation-card__text">{{ meditation.description }}</p>
       </header>
       <footer class="meditation-card__footer">
-        <ButtonComp>Начать <StartIcon width="13" height="13" /></ButtonComp>
+        <ButtonComp @click="startMeditation(meditation)"
+          >Начать <StartIcon width="13" height="13"
+        /></ButtonComp>
         <span class="meditation-card__duration">{{ meditation.duration_min }} мин</span>
       </footer>
     </div>
