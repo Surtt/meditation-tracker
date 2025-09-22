@@ -6,6 +6,21 @@
 	--primary-inverted-color: rgba(0, 0, 0, 1);
 	--bg-divider: rgba(58, 80, 81, 1);
 	--bg-form-button-color: rgba(124, 154, 146, 1);
+
+	--stat-bg-dark: rgba(37, 51, 52, 1);
+	--stat-wave-teal: rgba(43, 91, 84, 1);
+	--stat-wave-green: rgba(43, 83, 51, 1);
+	--stat-wave-blue: rgba(43, 80, 91, 1);
+	--stat-wave-olive: rgba(89, 91, 43, 1);
+	--stat-wave-red: rgba(91, 43, 44, 1);
+
+	--stat-top-teal: rgba(105, 161, 176, 1);
+	--stat-top-green: rgba(105, 176, 105, 1);
+	--stat-top-blue: rgba(105, 161, 176, 1);
+	--stat-top-olive: rgba(89, 91, 43, 1);
+	--stat-top-red: rgba(193, 116, 116, 1);
+
+	--stat-text-muted: rgba(255, 255, 255, 0.5);
 }
 
 *,
